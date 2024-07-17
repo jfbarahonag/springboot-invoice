@@ -2,6 +2,10 @@ package com.jfbarahonag.springboot.di.invoice.springboot_di_invoice.models;
 
 public class InvoiceItem {
   
+  private Product product;
+  
+  private Integer quantity;
+
   public InvoiceItem() {
   }
   
@@ -9,10 +13,6 @@ public class InvoiceItem {
     this.product = product;
     this.quantity = quantity;
   }
-
-  private Product product;
-  
-  private Integer quantity;
 
   public Product getProduct() {
     return product;
