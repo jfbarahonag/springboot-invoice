@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class Invoice {
-  
+
   @Autowired
   private Client client;
 
@@ -40,5 +40,12 @@ public class Invoice {
 
   public void setItems(List<InvoiceItem> items) {
     this.items = items;
+  }
+
+  public Long getTotal() {
+    return items.stream()
+        .map(item -> item.getAmount())
+        .reduce((acc, amount) -> acc + amount)
+        .get();
   }
 }
