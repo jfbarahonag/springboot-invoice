@@ -29,4 +29,8 @@ public class InvoiceItem {
   public void setQuantity(Integer quantity) {
     this.quantity = quantity;
   }
+
+  public Long getAmount() {
+    return product.getPrice() * quantity;
+  }
 }
