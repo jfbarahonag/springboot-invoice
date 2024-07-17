@@ -44,7 +44,7 @@ public class Invoice {
 
   public Long getTotal() {
     return items.stream()
-        .map(item -> item.getAmount())
-        .reduce(0L, (acc, amount) -> acc + amount);
+        .mapToLong(InvoiceItem::getAmount)
+        .sum();
   }
 }
