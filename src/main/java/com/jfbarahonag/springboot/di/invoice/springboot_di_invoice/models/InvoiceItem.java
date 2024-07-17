@@ -2,6 +2,7 @@ package com.jfbarahonag.springboot.di.invoice.springboot_di_invoice.models;
 
 public class InvoiceItem {
   private Product product;
+  
   private Integer quantity;
 
   public Product getProduct() {

@@ -1,9 +1,15 @@
 package com.jfbarahonag.springboot.di.invoice.springboot_di_invoice.models;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Client {
   private Long id;
+
   private String firstName;
+
   private String lastName;
+  
   private String documentId;
 
   public Long getId() {
