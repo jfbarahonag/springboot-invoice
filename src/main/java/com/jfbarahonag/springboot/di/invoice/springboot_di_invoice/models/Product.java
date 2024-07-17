@@ -1,10 +1,20 @@
 package com.jfbarahonag.springboot.di.invoice.springboot_di_invoice.models;
 
 public class Product {
+
+  public Product() {
+  }
+
+  public Product(String name, String sku, Long price) {
+    this.name = name;
+    this.sku = sku;
+    this.price = price;
+  }
+
   private String name;
 
   private String sku;
-  
+
   private Long price;
 
   public String getName() {
