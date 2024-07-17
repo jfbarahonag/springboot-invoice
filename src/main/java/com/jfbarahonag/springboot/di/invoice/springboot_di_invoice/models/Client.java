@@ -1,15 +1,20 @@
 package com.jfbarahonag.springboot.di.invoice.springboot_di_invoice.models;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component
 public class Client {
+  @Value("${client.id}")
   private Long id;
-
+  
+  @Value("${client.firstname}")
   private String firstName;
-
+  
+  @Value("${client.lastname}")
   private String lastName;
   
+  @Value("${client.documentid}")
   private String documentId;
 
   public Long getId() {
