@@ -11,7 +11,7 @@ import com.jfbarahonag.springboot.di.invoice.springboot_di_invoice.models.Invoic
 import com.jfbarahonag.springboot.di.invoice.springboot_di_invoice.models.Product;
 
 @Configuration
-@PropertySource("classpath:data.properties")
+@PropertySource(value = "classpath:data.properties", encoding = "UTF-8")
 public class AppConfig {
 
   @Bean
