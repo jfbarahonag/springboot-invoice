@@ -45,7 +45,6 @@ public class Invoice {
   public Long getTotal() {
     return items.stream()
         .map(item -> item.getAmount())
-        .reduce((acc, amount) -> acc + amount)
-        .get();
+        .reduce(0L, (acc, amount) -> acc + amount);
   }
 }
