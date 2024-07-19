@@ -30,8 +30,9 @@ public class Invoice {
   
   @PostConstruct
   public void init() {
+    client.setFirstName(client.getFirstName().toUpperCase());
     System.out.println("[PostConstruct] Creating the invoice component");
-    System.out.println("[PostConstruct]" + " " + client);
+    System.out.println("[PostConstruct]" + " " + client.getFirstName());
     System.out.println("[PostConstruct]" + " " + description);
   }
 
