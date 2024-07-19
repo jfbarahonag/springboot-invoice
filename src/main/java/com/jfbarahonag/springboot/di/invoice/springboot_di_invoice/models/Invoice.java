@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
+import jakarta.annotation.PostConstruct;
+
 @Component
 public class Invoice {
 
@@ -19,6 +21,19 @@ public class Invoice {
   @Autowired
   @Qualifier("itemsMarket")
   private List<InvoiceItem> items;
+
+  public Invoice() {
+    System.out.println("[Constructor] Creating the invoice component");
+    System.out.println("[Constructor]" + " " + client);
+    System.out.println("[Constructor]" + " " + description);
+  }
+  
+  @PostConstruct
+  public void init() {
+    System.out.println("[PostConstruct] Creating the invoice component");
+    System.out.println("[PostConstruct]" + " " + client);
+    System.out.println("[PostConstruct]" + " " + description);
+  }
 
   public Client getClient() {
     return client;
