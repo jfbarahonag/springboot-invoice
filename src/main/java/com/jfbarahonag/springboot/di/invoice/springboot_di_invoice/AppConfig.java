@@ -5,7 +5,6 @@ import java.util.List;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.PropertySource;
 
 import com.jfbarahonag.springboot.di.invoice.springboot_di_invoice.models.InvoiceItem;
@@ -15,7 +14,7 @@ import com.jfbarahonag.springboot.di.invoice.springboot_di_invoice.models.Produc
 @PropertySource(value = "classpath:data.properties", encoding = "UTF-8")
 public class AppConfig {
 
-  @Bean
+  @Bean("itemsTechStore")
   List<InvoiceItem> invoiceItems() {
 
     Product p1 = new Product("Camera", "AK1234", 2500L);
@@ -26,8 +25,7 @@ public class AppConfig {
         new InvoiceItem(p2, 3));
   }
 
-  @Bean
-  @Primary
+  @Bean("itemsMarket")
   List<InvoiceItem> invoiceItemsMarket() {
 
     Product p1 = new Product("Rice x50g", "N/A", 5L);
