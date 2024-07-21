@@ -6,11 +6,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
+import org.springframework.web.context.annotation.RequestScope;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import jakarta.annotation.PostConstruct;
 import jakarta.annotation.PreDestroy;
 
 @Component
+@RequestScope
+@JsonIgnoreProperties({"targetSource", "advisors"}) //proxy attributes
 public class Invoice {
 
   @Autowired
@@ -31,7 +36,7 @@ public class Invoice {
   
   @PostConstruct
   public void init() {
-    client.setFirstName(client.getFirstName().toUpperCase());
+    client.setFirstName("First name: ".concat(client.getFirstName().toUpperCase()));
     System.out.println("[PostConstruct] Creating the invoice component");
     System.out.println("[PostConstruct]" + " " + client.getFirstName());
     System.out.println("[PostConstruct]" + " " + description);
